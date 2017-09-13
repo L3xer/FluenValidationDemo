@@ -4,8 +4,8 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="FluentValidationDemo.Views.MainPage"
-             Title="MainPage">
+             Title="Fluent Validation Demo">
   <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="{Binding Title}" />
+        <Label Text="Fluent Validation Demo" />
   </StackLayout>
 </ContentPage>
