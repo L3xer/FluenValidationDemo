@@ -5,7 +5,11 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="FluentValidationDemo.Views.MainPage"
              Title="Fluent Validation Demo">
-  <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="Fluent Validation Demo" />
-  </StackLayout>
+  <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10" Spacing="20">
+        <Entry Placeholder="Email" Text="{Binding Email}" />
+        <Entry Placeholder="Password" Text="{Binding Password}" />
+        <Entry Placeholder="Confirm Password" Text="{Binding ConfirmPassword}" />
+
+        <Button Text="SEND" TextColor="White" BackgroundColor="#3399ff" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" />
+    </StackLayout>
 </ContentPage>
