@@ -1,6 +1,8 @@
-﻿using Prism.Unity;
-using FluentValidationDemo.Views;
+﻿using Microsoft.Practices.Unity;
+using Prism.Unity;
 using Xamarin.Forms;
+using FluentValidationDemo.Views;
+using FluentValidationDemo.Validators;
 
 namespace FluentValidationDemo
 {
@@ -17,6 +19,8 @@ namespace FluentValidationDemo
 
         protected override void RegisterTypes()
         {
+            Container.RegisterType<InputFormValidator>(new ContainerControlledLifetimeManager());
+
             Container.RegisterTypeForNavigation<NavigationPage>();
             Container.RegisterTypeForNavigation<MainPage>();
         }

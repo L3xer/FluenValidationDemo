@@ -1,4 +1,6 @@
 ﻿using Prism.Mvvm;
+using FluentValidationDemo.Validators;
+
 
 namespace FluentValidationDemo.ViewModels
 {
@@ -25,9 +27,11 @@ namespace FluentValidationDemo.ViewModels
             set { SetProperty(ref _confirmPassword, value); }
         }
 
-        public MainPageViewModel()
-        {
+        private InputFormValidator _validator;
 
+        public MainPageViewModel(InputFormValidator validator)
+        {
+            _validator = validator;
         }
     }
 }
