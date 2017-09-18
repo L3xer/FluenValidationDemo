@@ -6,10 +6,10 @@
              x:Class="FluentValidationDemo.Views.MainPage"
              Title="Fluent Validation Demo">
   <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10" Spacing="20">
-        <Entry Placeholder="Email" Text="{Binding Email}" />
-        <Entry Placeholder="Password" Text="{Binding Password}" />
-        <Entry Placeholder="Confirm Password" Text="{Binding ConfirmPassword}" />
+        <Entry Placeholder="Email" Text="{Binding Email}" Keyboard="Email" />
+        <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true" />
+        <Entry Placeholder="Confirm Password" Text="{Binding ConfirmPassword}" IsPassword="true" />
 
-        <Button Text="SEND" TextColor="White" BackgroundColor="#3399ff" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" />
+        <Button Text="SEND" Command="{Binding SendCommand}" TextColor="White" BackgroundColor="#3399ff" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" />
     </StackLayout>
 </ContentPage>

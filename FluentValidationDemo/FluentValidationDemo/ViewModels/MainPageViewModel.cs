@@ -1,7 +1,8 @@
-﻿using Prism.Mvvm;
+﻿using System;
+using Prism.Mvvm;
+using Prism.Commands;
+using Prism.Services;
 using FluentValidationDemo.Validators;
-
-
 namespace FluentValidationDemo.ViewModels
 {
     public class MainPageViewModel : BindableBase
@@ -27,11 +28,26 @@ namespace FluentValidationDemo.ViewModels
             set { SetProperty(ref _confirmPassword, value); }
         }
 
+        private IPageDialogService _pageDialogService;
         private InputFormValidator _validator;
 
-        public MainPageViewModel(InputFormValidator validator)
+        public DelegateCommand SendCommand { get; set; }
+
+        public MainPageViewModel(IPageDialogService pageDialogService, InputFormValidator validator)
         {
+            _pageDialogService = pageDialogService;
             _validator = validator;
+
+            SendCommand = new DelegateCommand(SendExecute);
+        }
+
+        private async void SendExecute()
+        {
+            var validationResult = await _validator.ValidateAsync(this);
+
+            string message = validationResult.IsValid ? "Success!" : string.Join(Environment.NewLine, validationResult.Errors);
+
+            await _pageDialogService.DisplayAlertAsync("Fluent Validation Demo", message, "Close");
         }
     }
 }
